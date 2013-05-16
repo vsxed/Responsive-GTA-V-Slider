@@ -10,17 +10,14 @@ body {
   padding: 3em 2em;
   font-family: 'Open Sans', Arial, sans-serif;
   font-size: 1em;
+  margin: 0;
+  padding: 0;
   line-height: 1;
   background: #333333;
 }
 .pen {
-  max-width: 350px;
+  max-width: 620px;
   margin: 0 auto;
-  opacity: 0;
-  -webkit-animation: 2.5s open 1 forwards;
-  -moz-animation: 2.5s open 1 forwards;
-  -o-animation: 2.5s open 1 forwards;
-  animation: 2.5s open 1 forwards;
   position: relative;
 }
 .credit {
@@ -59,4 +56,27 @@ body {
 }
 .credit p:last-of-type {
   margin-bottom: 30px;
+}
+.stage {
+  max-width: 620px;
+  height: 400px;
+  background: red;
+}
+.element {
+  background: green;
+  width: 200px;
+  -webkit-transform-origin: 50% 50%;
+  height: inherit;
+  margin: 0 10px 0 0;
+  display: inline-block;
+  float: left;
+}
+.element.active {
+  width: 280px;
+}
+.element.inactive {
+  width: 160px;
+}
+.element:last-of-type {
+  margin: 0;
 }

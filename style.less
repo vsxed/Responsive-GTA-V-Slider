@@ -5,8 +5,11 @@
 @highlight: #55beeb;
 @bg-col: #333;
 
-@elem-width: 350px;
-@elem-height: 133px;
+@stage-width: 620px;
+@elem-width: 200px;
+@elem-active-width: 50%;
+@seperator: (@stage-width - (@elem-width * 3)) / 2;
+@stage-height: 400px;
 @main-color: #333;
 @sec-color: #999;
 @h-col: #006fe1;
@@ -37,18 +40,15 @@ body {
   padding: 3em 2em;
   font-family: 'Open Sans', Arial, sans-serif;
   font-size: 1em;
+  margin:0;
+  padding:0;
   line-height: 1;
   background: @bg-col;
 }
 
 .pen {
-	max-width: @elem-width;
+	max-width: @stage-width;
 	margin: 0 auto;
-	opacity: 0;
-	-webkit-animation: 2.5s open 1 forwards;
-	-moz-animation: 2.5s open 1 forwards;
-	-o-animation: 2.5s open 1 forwards;
-	animation: 2.5s open 1 forwards;
 	position: relative;
 }
 
@@ -92,3 +92,30 @@ body {
 }
 
 // -- Pen related --
+.stage {
+	max-width: @stage-width;
+	height: @stage-height;
+	background: red;
+}
+
+.element {
+	background: green;
+	width: @elem-width;
+	-webkit-transform-origin: 50% 50%;
+	height: inherit;
+	margin: 0 @seperator 0 0;
+	display: inline-block;
+	float: left;
+
+	&.active {
+		width: @elem-width + 80px;
+	}
+
+	&.inactive {
+		width: @elem-width - 40px;
+	}
+}
+
+.element:last-of-type {
+	margin: 0;
+}
