@@ -147,7 +147,7 @@ body {
 }
 @media all and (min-width: 900px) {
   .pen {
-    max-width: 880px;
+    max-width: 890px;
   }
   .element {
     width: 286px;
@@ -159,7 +159,7 @@ body {
     width: 366px;
   }
   .stage {
-    max-width: 880px;
+    max-width: 890px;
     height: 600px;
   }
 }
