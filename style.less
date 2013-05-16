@@ -1,0 +1,94 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+
+@grey: #f0f0f0;
+@shadow: rgba(0,0,0,0.165);
+@highlight: #55beeb;
+@bg-col: #333;
+
+@elem-width: 350px;
+@elem-height: 133px;
+@main-color: #333;
+@sec-color: #999;
+@h-col: #006fe1;
+
+.transition (@trans-time, @trans-grad:ease-in-out) {
+  -webkit-transition: all @trans-time @trans-grad;  
+     -moz-transition: all @trans-time @trans-grad;
+      -ms-transition: all @trans-time @trans-grad;
+       -o-transition: all @trans-time @trans-grad;
+          transition: all @trans-time @trans-grad;
+}
+.webfont (@fontname) {
+  font-family: '@{fontname}';
+  src:url('font/@{fontname}');
+  src:url('font/@{fontname}.eot?#iefix') format('embedded-opentype'),
+      url('font/@{fontname}.woff') format('woff'),
+      url('font/@{fontname}.ttf') format('truetype');
+  font-weight: normal;
+  font-style:  normal;
+}
+
+@font-face{
+	.webfont(more);
+}
+
+// -- Codepen related --
+body {
+  padding: 3em 2em;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1;
+  background: @bg-col;
+}
+
+.pen {
+	max-width: @elem-width;
+	margin: 0 auto;
+	opacity: 0;
+	-webkit-animation: 2.5s open 1 forwards;
+	-moz-animation: 2.5s open 1 forwards;
+	-o-animation: 2.5s open 1 forwards;
+	animation: 2.5s open 1 forwards;
+	position: relative;
+}
+
+.credit {
+	display: block;
+	max-width: 400px;
+	text-align: center;
+	margin: 150px auto 0;
+	padding: 0;
+	font-size: 0.8em;
+	color: @grey;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.9);
+
+	p a,
+	a {
+		color: white;
+		text-decoration: none;
+		font-weight: 700;
+
+		&:hover,
+		&:active {
+			text-shadow: 0 0 5px rgba(255,255,255,0.4);
+			color: white;
+		}
+
+		&.button {
+			padding: 6px 12px;
+			margin-top: 10px;
+			background: darken(@bg-col, 10%);
+			border-radius: 3px;
+
+			&:hover {
+				background: lighten(@bg-col, 10%);
+			}
+		}
+	}
+
+	p:last-of-type {
+		margin-bottom: 30px;
+	}
+}
+
+// -- Pen related --
