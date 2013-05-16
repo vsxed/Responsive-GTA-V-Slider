@@ -3,16 +3,20 @@
 @grey: #f0f0f0;
 @shadow: rgba(0,0,0,0.165);
 @highlight: #55beeb;
-@bg-col: #333;
+@bg-col: #111;
 
 @stage-width: 620px;
-@elem-width: 200px;
-@elem-active-width: 50%;
+@elem-width: 202px;
 @seperator: (@stage-width - (@elem-width * 3)) / 2;
 @stage-height: 400px;
 @main-color: #333;
 @sec-color: #999;
 @h-col: #006fe1;
+
+@media-stage-width: 320px;
+@media-elem-width: 101px;
+@media-seperator: (@stage-width - (@elem-width * 3)) / 2;
+
 
 .transition (@trans-time, @trans-grad:ease-in-out) {
   -webkit-transition: all @trans-time @trans-grad;  
@@ -47,9 +51,16 @@ body {
 }
 
 .pen {
-	max-width: @stage-width;
-	margin: 0 auto;
+	max-width: @stage-width + 15px ;
+	width: 100%;
+	margin: 50px auto 0;
+	opacity: 0;
 	position: relative;
+	.transition(0.25s);
+	-webkit-animation: 1s appear 1 forwards;
+	-moz-animation: 1s appear 1 forwards;
+	-o-animation: 1s appear 1 forwards;
+	animation: 1s appear 1 forwards;
 }
 
 .credit {
@@ -93,9 +104,10 @@ body {
 
 // -- Pen related --
 .stage {
-	max-width: @stage-width;
+	max-width: @stage-width + 15px ;
+	width: 100%;
 	height: @stage-height;
-	background: red;
+	.transition(0.25s);
 }
 
 .element {
@@ -105,17 +117,83 @@ body {
 	height: inherit;
 	margin: 0 @seperator 0 0;
 	display: inline-block;
-	float: left;
+	// float: left;
+	.transition(0.25s);
+	-webkit-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+    -ms-transform: translate3d(0,0,0);
+    -o-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
 
 	&.active {
 		width: @elem-width + 80px;
+		.transition(0.25s);
 	}
 
 	&.inactive {
 		width: @elem-width - 40px;
+		.transition(0.25s);
+		opacity: 0.4;
+	}
+	
+	&.franklin {
+		background: url('img/franklin.jpeg') 45% 0 no-repeat;
+		background-size: cover;
+	}
+
+	&.michael {
+		background: url('img/michael.jpeg') 45% 0 no-repeat;
+		background-size: cover;
+	}
+
+	&.trevor {
+		background: url('img/trevor.jpeg') 45% 0 no-repeat;
+		background-size: cover;
 	}
 }
 
 .element:last-of-type {
 	margin: 0;
+}
+
+@media all and (max-width: 660px) {
+    	.pen {
+    		max-width: @media-stage-width + 15px;
+    	}
+
+    	.element {
+    		width: @media-elem-width;
+
+    		&.inactive {
+				width: @media-elem-width - 40px;
+    		}
+
+    		&.active {
+				width: @media-elem-width + 80px;
+    		}
+    	}
+
+    	.stage {
+    		max-width: @media-stage-width + 15px;
+    	}
+    }
+
+@-webkit-keyframes appear {
+	15% {opacity: 0;}
+	100% {opacity: 1;}
+}
+
+@-moz-keyframes appear {
+	15% {opacity: 0;}
+	100% {opacity: 1;}
+}
+
+@-o-keyframes appear {
+	15% {opacity: 0;}
+	100% {opacity: 1;}
+}
+
+@keyframes appear {
+	15% {opacity: 0;}
+	100% {opacity: 1;}
 }
