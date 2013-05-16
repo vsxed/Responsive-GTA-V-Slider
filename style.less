@@ -15,8 +15,10 @@
 
 @media-stage-width: 320px;
 @media-elem-width: 101px;
-@media-seperator: (@stage-width - (@elem-width * 3)) / 2;
 
+@media-large-stage-width: 860px;
+@media-large-elem-width: 286px;
+@media-large-stage-height: 600px;
 
 .transition (@trans-time, @trans-grad:ease-in-out) {
   -webkit-transition: all @trans-time @trans-grad;  
@@ -176,7 +178,30 @@ body {
     	.stage {
     		max-width: @media-stage-width + 15px;
     	}
-    }
+}
+
+@media all and (min-width: 900px) {
+    	.pen {
+    		max-width: @media-large-stage-width + 20px;
+    	}
+
+    	.element {
+    		width: @media-large-elem-width;
+
+    		&.inactive {
+				width: @media-large-elem-width - 40px;
+    		}
+
+    		&.active {
+				width: @media-large-elem-width + 80px;
+    		}
+    	}
+
+    	.stage {
+    		max-width: @media-large-stage-width + 20px;
+    		height: @media-large-stage-height;
+    	}
+}
 
 @-webkit-keyframes appear {
 	15% {opacity: 0;}

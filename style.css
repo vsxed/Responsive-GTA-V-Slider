@@ -145,6 +145,24 @@ body {
     max-width: 335px;
   }
 }
+@media all and (min-width: 900px) {
+  .pen {
+    max-width: 880px;
+  }
+  .element {
+    width: 286px;
+  }
+  .element.inactive {
+    width: 246px;
+  }
+  .element.active {
+    width: 366px;
+  }
+  .stage {
+    max-width: 880px;
+    height: 600px;
+  }
+}
 @-webkit-keyframes appear {
   15% {
     opacity: 0;
